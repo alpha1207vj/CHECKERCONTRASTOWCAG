@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contrasto — WCAG Contrast Checker',
     description: 'Check color contrast ratios instantly and ensure your designs meet WCAG AA and AAA accessibility standards.',
-    url: 'https://Codjagedeon.vercel.app',
+    url: 'https://codja.vercel.app',
     siteName: 'Contrasto',
     locale: 'en_US',
     type: 'website',
