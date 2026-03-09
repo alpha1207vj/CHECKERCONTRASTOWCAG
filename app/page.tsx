@@ -4,14 +4,14 @@ import dynamic from 'next/dynamic'
 import { useState } from "react";
 import {semibold_inter,bold_inter, roboto,semibold_roboto} from "@/app/font";
 import ColorPicker from './components/color_picker'
-import TestColor from "./components/test_color";
 import HeroTitle from "./components/hero_titile";
 import HowItWorks from "./components/howitworks";
-export default function Page()
-{
-  const TestColor = dynamic(() => import('./components/test_color'), {
+const TestColor = dynamic(() => import('./components/test_color'), {
   ssr: false
 })
+export default function Page()
+{
+  
   const [color,SetColor] = useState('#ACC8E5')
   const [color1,SetColor1] = useState('#000000')
    return (
