@@ -6,6 +6,9 @@ import HowItWorks from './components/howitworks'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+   verification: {
+    google:  "9b184dca58a89190"  // the code from the HTML file name
+  },
   title: 'Contrasto — WCAG Contrast Checker',
   description: 'Check color contrast ratios instantly and ensure your designs meet WCAG AA and AAA accessibility standards. Built for devs and designers who care about accessibility.',
   keywords: ['contrast checker', 'wcag', 'accessibility', 'color contrast', 'a11y', 'wcag aa', 'wcag aaa'],
@@ -48,7 +51,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <footer className="flex flex-col mx-6 mt-10">
           <p className='text-center text-[12px]'>
             &copy; Contrasto by{' '}
-            <a className='font-bold transition-colors cursor-pointer hover:underline decoration-orange-brand'>
+            <a href='https://github.com/alpha1207vj' className='font-bold transition-colors cursor-pointer hover:underline decoration-orange-brand'>
               CODJA GEDEON
             </a>{' '}
             a WCAG contrast checker for devs and designers who care about accessibility.
