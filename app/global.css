@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Changes highlight color for ALL text */
+  ::selection {
+    background-color: #DA7756;  /* Orange */
+    color: white;  /* Text color when highlighted */
+  }
+  
+  /* For Firefox */
+  ::-moz-selection {
+    background-color: #DA7756;
+    color: white;
+  }
+}
