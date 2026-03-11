@@ -1,5 +1,5 @@
 // app/fonts.ts
-import { Inter, Roboto } from 'next/font/google'
+import { Inter, Nunito } from 'next/font/google'
 
 export const inter = Inter({ subsets: ['latin'] })
 
@@ -9,5 +9,5 @@ export const bold_inter = Inter(
      weight : "900"
     }
 )
-export const roboto = Roboto({ subsets: ['latin'],weight: "400"})
+export const roboto = Nunito({ subsets: ['latin'],weight: "400"})
 export const semibold_inter = Inter({ subsets: ['latin'],weight: "700" })

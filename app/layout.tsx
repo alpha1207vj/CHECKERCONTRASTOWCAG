@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
    verification: {
-    google:  "9b184dca58a89190"  // the code from the HTML file name
+    google:"9b184dca58a89190"  // the code from the HTML file name
   },
   title: 'Contrasto — WCAG Contrast Checker',
   description: 'Check color contrast ratios instantly and ensure your designs meet WCAG AA and AAA accessibility standards. Built for devs and designers who care about accessibility.',
@@ -41,7 +41,8 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default  function RootLayout({ children }: RootLayoutProps) {
+ 
   return (
     <html lang="en">
       <body suppressHydrationWarning>
