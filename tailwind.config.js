@@ -15,7 +15,9 @@ module.exports = {
       "red-brand" : "#991B1B",
       "green-brand": "#166534",
       "yellow-brand" : "#854D0E",
-      "colorpicker-white-brand" : "#FFF5F5"
+      "colorpicker-white-brand" : "#FFF5F5",
+      "gray-tool-brand" : "#AD98A2",
+      "light-gray" : "#eee5e5"
       }
     },
   },
