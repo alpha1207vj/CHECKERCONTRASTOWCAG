@@ -50,9 +50,9 @@ export default function ColorInput2({ color, onColorChange }: any) {
             className={`${roboto.className} w-full h-full text-[15px] p-2 border-2 outline-none rounded-br-md rounded-bl-md caret-gray-brand border-transparent`}
           />
           <div className="flex items-center justify-center pr-2 bg-white rounded-br-md">
-            <button className="transition-transform duration-150 active:scale-90 flex items-center justify-center w-[35px] h-[35px]  rounded-full lg:hover:bg-[#E8E0DE]">
+            <button className="cursor-pointer transition-transform duration-150 active:scale-90 flex items-center justify-center w-[35px] h-[35px]  rounded-full lg:hover:bg-[#E8E0DE]">
               <LuCopy
-                className="cursor-pointer"
+             
                 onClick={handleCopy}
               />
             </button>
