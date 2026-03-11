@@ -31,7 +31,7 @@ export default function ColorPicker({color,onColorChange,color1,onColorChange1}:
     const darker = Math.min(L1, L2)
     return parseFloat(((lighter + 0.05) / (darker + 0.05)).toFixed(2))
   }
-
+  
   const isValid = (hex: string) => /^#[0-9A-Fa-f]{6}$/.test(hex)
   const ratio = isValid(color) && isValid(color1) 
     ? getContrastRatio(color, color1) 

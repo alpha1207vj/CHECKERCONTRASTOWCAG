@@ -27,7 +27,7 @@ export default function Main_Component()
                 <div className="flex flex-col w-full h-full gap-4 p-6 lg:flex-row md:flex-row">
                   <div className="relative w-full  min-h-[200px] rounded-md md:min-h-[500px] flex md:items-center md:justify-center " style={{ backgroundColor: color }}>
                    <TestColor color = {color} onColorChange ={SetColor} color1 = {color1} onColorChange1 = {SetColor1}/>
-                   <ToolButton/>
+                   <ToolButton color = {color} color1 = {color1} onColorChange ={SetColor}  onColorChange1 = {SetColor1} />
                   </div>
                   
                   <div className="w-full bg-colorpicker-white-brand shadow-2xl  min-h-[600px] rounded-md flex items-center justify-center flex-col gap-2">

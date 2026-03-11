@@ -61,13 +61,13 @@ export default function CheckCondition({ ratio }: any) {
             <span className={`${roboto.className} md:w-[120px] w-[70px]`}>
               {element.title}
             </span>
-            <span className='flex items-center gap-1'>
+            <span className='flex items-center gap-1 w-[70px]  justify-end'>
               <element.iconAA size={25} color={element.colorAA} />
-              <span className={`${roboto.className} hidden md:block`} style={{ color: element.colorAA }}>
+              <span className={`${roboto.className} hidden md:block `} style={{ color: element.colorAA }}>
                 {element.stateAA}
               </span>
             </span>
-            <span className='flex items-center gap-1'>
+            <span className='flex items-center gap-1 w-[70px]  justify-end'>
               <element.iconAAA size={25} color={element.colorAAA} />
               <span className={`${roboto.className} hidden md:block`} style={{ color: element.colorAAA }}>
                 {element.stateAAA}
