@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import { useState } from 'react'
 import { semibold_inter, roboto } from "../font"
 import {CircleX} from "lucide-react"
+import { FaQ } from 'react-icons/fa6';
 
 const quotes = [
   { q: "Every pixel matters because even the smallest detail can affect trust and experience.", a: "Unknown" },
@@ -40,9 +41,11 @@ export default function Fullscreen_Preview({ color, onColorChange, color1, onCol
       <p className={`${semibold_inter.className} text-[35px] text-center`} style={{ color: color1}}>
         Proverb of the day
       </p>
-      <p className={`text-center ${roboto.className} text-[18px]`} style={{ color: color1 }}>
-        "{quote.q}"
-      </p>
+      <p className={`text-center ${roboto.className} text-[18px] flex gap-2`} style={{ color: color1 }}>
+       
+       "{quote.q}"
+       
+        </p>
       <p className={`text-center ${roboto.className} text-[13px] mt-2 opacity-60`} style={{ color: color1 }}>
         — {quote.a}
       </p>

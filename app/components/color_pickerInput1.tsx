@@ -5,7 +5,7 @@ import { Chrome } from '@uiw/react-color'
 import { LuCopy } from "react-icons/lu";
 import { BadgeCheck } from "lucide-react";
 
-export default function ColorInput2({ color, onColorChange }: any) {
+export default function ColorInput1({ color, onColorChange }: any) {
   const [showPicker, setShowPicker] = useState(false)
   const [showToast, setShowToast] = useState(false)
   const pickerRef = useRef<HTMLDivElement>(null)
@@ -50,7 +50,7 @@ export default function ColorInput2({ color, onColorChange }: any) {
             className={`${roboto.className} w-full h-full text-[15px] p-2 border-2 outline-none rounded-br-md rounded-bl-md caret-gray-brand border-transparent`}
           />
           <div className="flex items-center justify-center pr-2 bg-white rounded-br-md">
-            <button  onClick={handleCopy} className="cursor-pointer transition-transform duration-150 active:scale-90 flex items-center justify-center w-[35px] h-[35px]  rounded-full lg:hover:bg-[#E8E0DE]">
+            <button  onClick={handleCopy} className="cursor-pointer transition-transform duration-150 active:scale-90 flex items-center justify-center w-[35px] h-[35px]  rounded-full lg:hover:bg-[#E8E0DE] ">
               <LuCopy
              
                 
@@ -72,7 +72,7 @@ export default function ColorInput2({ color, onColorChange }: any) {
 
       {/* toast */}
       <div
-        className="fixed z-50 flex items-center gap-2 px-4 py-3 text-white transition-all duration-300 bg-black rounded-full shadow-lg bottom-6 left-1/2"
+        className="fixed z-50 flex items-center gap-2 px-2 py-3 text-white transition-all duration-300 bg-black rounded-full shadow-lg bottom-6 left-1/2"
         style={{
           opacity: showToast ? 1 : 0,
           transform: showToast ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(20px)',
@@ -80,7 +80,7 @@ export default function ColorInput2({ color, onColorChange }: any) {
         }}
       >
         <BadgeCheck size={18} />
-        <span className={`${roboto.className} text-sm`}>
+        <span className={`${roboto.className} text-sm whitespace-nowrap`}>
           Color copied to the clipboard!
         </span>
       </div>
