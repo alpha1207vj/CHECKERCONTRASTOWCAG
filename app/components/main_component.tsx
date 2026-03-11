@@ -8,6 +8,7 @@ import HeroTitle from "./hero_titile";
 import { EllipseIcon, Ellipsis,ToolCase ,Settings} from 'lucide-react';
 import HowItWorks from "./howitworks";
 import ToolButton from './button_tool';
+import Fullscreen_Preview from './fullscreen_preview';
 const TestColor = dynamic(() => import('./test_color'), {
   ssr: false
 })
@@ -18,8 +19,7 @@ export default function Main_Component()
     return(
         <>
 
-                <main className="flex flex-col w-full min-h-screen">
-              
+                <main className="relative flex flex-col w-full min-h-screen">
               <section className="flex items-center justify-center w-full flex-cols h-[40vh]">
                 <HeroTitle/>
               </section>

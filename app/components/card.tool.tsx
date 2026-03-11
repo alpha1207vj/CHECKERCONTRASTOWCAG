@@ -1,13 +1,22 @@
+"use client"
+import Fullscreen_Preview from "./fullscreen_preview";
+import { createPortal } from "react-dom";
+import { useState } from "react";
 import { roboto } from "../font"
 import { ArrowLeftRight,Eye ,Save,Copy,FileUp,Maximize2} from 'lucide-react';
 export default function CardTool({ isOpen,color,color1,onColorChange,onColorChange1 }: { isOpen: boolean,color:any,color1:any,onColorChange:any,onColorChange1:any})
 {
+ const [isFullScreen, setFullscreen] = useState(false);
   const SwapColor = () =>
   {
     onColorChange(color1)
     onColorChange1(color)
   }
-  return(
+  const Fullscreen = ()=>
+  {
+    setFullscreen(true)
+  }
+  return (
     <>
      <div className={`${roboto.className} transition-all duration-300  ease-in-out  gap-4 text-sm  flex p-4 flex-col  absolute top-2 min-w-[200px] shadow-lg  min-h-48 rounded-md -right-60 z-[100] bg-white-brand
      ${isOpen 
@@ -34,10 +43,16 @@ export default function CardTool({ isOpen,color,color1,onColorChange,onColorChan
             <FileUp className="inline"/>
             Export SVG
         </span>
-        <span className="flex gap-2 p-2 font-semibold rounded-md cursor-pointer md:hover:bg-light-gray">
+        <span onClick={()=>{Fullscreen()}} className="flex gap-2 p-2 font-semibold transition-all duration-300 ease-in-out rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95">
             <Maximize2 className="inline"/>
             View Fullscreen
         </span>
+      <Fullscreen_Preview 
+  isOpen={isFullScreen}
+  color={color}
+  color1={color1}
+  onClose={() => setFullscreen(false)}
+/>
      </div>
     </>
   )
