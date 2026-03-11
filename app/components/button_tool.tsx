@@ -32,7 +32,7 @@ const [showTool,setShowTool] = useState(false)
     return(
         <>
            <button ref={inputRef} onClick={()=>{setShowTool(!showTool)}} className='absolute flex items-center justify-center w-6 h-6 transition-all duration-75 rounded-md top-2 right-2 bg-gray-tool-brand active:scale-90 opacity-[0.8]'>
-              <Settings size={20}  color='black'/>
+              <Settings size={20}  color='white'/>
             </button>
          <CardTool color = {color} color1= {color1} onColorChange={onColorChange} onColorChange1={onColorChange1} isOpen={showTool}/>
         </>
