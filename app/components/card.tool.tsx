@@ -35,9 +35,9 @@ ${isOpen
             <Eye className="inline"/>
             Color blindness Simulator
         </span>
-        <span className="flex gap-2 p-2 font-semibold rounded-md cursor-pointer lg:hover:bg-light-gray">
+        <span className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray tranform-all active:scale-95 active:bg-light-gray">
             <Save className="inline"/>
-            Save Palette
+            Saved Palettes
         </span>
         <span className="flex gap-2 p-2 font-semibold rounded-md cursor-pointer lg:hover:bg-light-gray">
             <Copy className="inline"/>
