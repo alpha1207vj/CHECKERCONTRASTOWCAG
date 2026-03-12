@@ -1,6 +1,6 @@
 
 "use client"
-import { Settings } from "lucide-react"
+import { Settings ,Settings2} from "lucide-react"
 import { useState ,useRef, useEffect} from "react"
 import CardTool from "./card.tool"
 
@@ -32,7 +32,7 @@ const [showTool,setShowTool] = useState(false)
     return(
         <>
            <button ref={inputRef} onClick={()=>{setShowTool(!showTool)}} className='absolute flex items-center justify-center w-6 h-6 transition-all duration-75 rounded-md top-2 right-2 bg-gray-tool-brand active:scale-90 opacity-[0.8]'>
-              <Settings size={20}  color='white'/>
+              <Settings2 size={20}  color='black' opacity={0.7}/>
             </button>
          <CardTool color = {color} color1= {color1} onColorChange={onColorChange} onColorChange1={onColorChange1} isOpen={showTool}/>
         </>
