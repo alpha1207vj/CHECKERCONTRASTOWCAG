@@ -32,7 +32,7 @@ function SubMenu({ label, icon, items }: { label: string, icon: React.ReactNode,
         {icon} {label}
       </button>
 
-      <div className={`flex flex-col gap-1 overflow-hidden transition-all duration-300 ease-in-out
+      <div className={`flex flex-col gap-1 overflow-hidden transition-all duration-500 ease-in-out
         ${open ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
         {items.map((item) => (
           <button
