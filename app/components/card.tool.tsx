@@ -1,63 +1,117 @@
 "use client"
 import Fullscreen_Preview from "./fullscreen_preview";
-import { createPortal } from "react-dom";
-import { useState } from "react";
+import { createPortal } from 'react-dom'
+import { useState, forwardRef } from "react";
 import { roboto } from "../font"
-import { ArrowLeftRight,Eye ,Save,Copy,FileUp,Maximize2} from 'lucide-react';
-export default function CardTool({ isOpen,color,color1,onColorChange,onColorChange1 }: { isOpen: boolean,color:any,color1:any,onColorChange:any,onColorChange1:any})
-{
- const [isFullScreen, setFullscreen] = useState(false);
-  const SwapColor = () =>
-  {
-    onColorChange(color1)
-    onColorChange1(color)
+import { FaCss } from "react-icons/fa6";
+import { ArrowLeftRight, Eye, Save, FileUp, Maximize2 ,BadgeCheck, Copy,Link} from 'lucide-react';
+import { RiTailwindCssFill } from "react-icons/ri";
+
+function SubMenu({ label, icon, items }: { label: string, icon: React.ReactNode, items: { label: string, onClick: () => void, icon: React.ReactNode }[]}) {
+  const [open, setOpen] = useState(false)
+  const [toast, setToast] = useState("")
+
+  const handleItemClick = (e: React.MouseEvent, item: { label: string, onClick: () => void }) => {
+    e.stopPropagation()
+    item.onClick()
+    setToast(item.label)
+    setOpen(false)
+    setTimeout(() => setToast(""), 2000)
+    
   }
-  const Fullscreen = ()=>
-  {
-    setFullscreen(true)
-  }
+
   return (
-    <>
-   <div className={`${roboto.className} transition-all duration-300 ease-in-out gap-4 text-sm flex p-4 flex-col z-[100] bg-white-brand
-  fixed bottom-0 left-0 right-0 rounded-t-2xl shadow-2xl top-42
-  md:absolute md:top-2 md:-right-60 md:left-auto md:bottom-auto
-  md:w-auto md:min-w-[200px] md:min-h-48 md:rounded-md md:shadow-lg
-${isOpen 
-  ? 'opacity-100 translate-y-0 pointer-events-auto' 
-  : 'opacity-0 translate-y-full md:translate-y-0 pointer-events-none'
-}
-`}>
-        <button onClick={()=>{SwapColor()}} className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray tranform-all active:scale-95 active:bg-light-gray">
-            <ArrowLeftRight className="inline"/>
-            Swap colors
-        </button>
-         <span className="flex gap-2 p-2 font-semibold rounded-md cursor-pointer lg:hover:bg-light-gray">
-            <Eye className="inline"/>
-            Color blindness Simulator
-        </span>
-        <span className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray tranform-all active:scale-95 active:bg-light-gray">
-            <Save className="inline"/>
-            Saved Palettes
-        </span>
-        <span className="flex gap-2 p-2 font-semibold rounded-md cursor-pointer lg:hover:bg-light-gray">
-            <Copy className="inline"/>
-            Copy as
-        </span>
-        <span className="flex gap-2 p-2 font-semibold rounded-md cursor-pointer lg:hover:bg-light-gray">
-            <FileUp className="inline"/>
-            Export SVG
-        </span>
-        <span onClick={()=>{Fullscreen()}} className="flex gap-2 p-2 font-semibold transition-all duration-300 ease-in-out rounded-md cursor-pointer lg:hover:bg-light-gray active:scale-95 active:bg-light-gray">
-            <Maximize2 className="inline"/>
-            View Fullscreen
-        </span>
-      <Fullscreen_Preview 
-  isOpen={isFullScreen}
-  color={color}
-  color1={color1}
-  onClose={() => setFullscreen(false)}
-/>
-     </div>
-    </>
+    <div
+      onMouseEnter={() => window.innerWidth >= 768 && setOpen(true)}
+      onMouseLeave={() => window.innerWidth >= 768 && setOpen(false)}
+      className="flex flex-col w-full"
+    >
+      <button
+        onClick={(e) => { e.stopPropagation(); setOpen(!open) }}
+        className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
+        {icon} {label}
+      </button>
+
+      <div className={`flex flex-col gap-1 overflow-hidden transition-all duration-300 ease-in-out
+        ${open ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
+        {items.map((item) => (
+          <button
+            key={item.label}
+            onClick={(e) => handleItemClick(e, item)}
+            className="flex gap-2 p-2 px-8 font-semibold rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
+              {item.icon}
+            {item.label}
+          </button>
+        ))}
+      </div>
+
+      {toast && createPortal(
+  <span className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white text-sm px-4 py-2 rounded-full shadow-lg z-[9999] pointer-events-none whitespace-nowrap transition-all duration-300 ease-in-out toast-enter flex gap-2">
+    <BadgeCheck/>
+    Copied as {toast} 
+  </span>,
+  document.body
+)}
+    </div>
   )
 }
+
+const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color1: any, onColorChange: any, onColorChange1: any }>(
+  ({ isOpen, color, color1, onColorChange, onColorChange1 }, ref) => {
+    const [isFullScreen, setFullscreen] = useState(false)
+
+    const SwapColor = () => {
+      onColorChange(color1)
+      onColorChange1(color)
+    }
+   const copyAsTailwind = (fg:any,back:any)=>
+   {
+     navigator.clipboard.writeText(`text-[${fg}] bg-[${back}]`)
+   }
+   const copyAsCss = (fg:any,back:any)=>
+   {
+     navigator.clipboard.writeText(`color : ${fg};\n background-color : ${back}`)
+   }
+    return (
+      <div ref={ref} className={`${roboto.className} transition-all duration-300 ease-in-out gap-4 text-sm flex p-4 flex-col z-[100] bg-white-brand
+        fixed bottom-0 left-0 right-0 rounded-t-2xl shadow-2xl top-42
+        md:absolute md:top-2 md:-right-60 md:left-auto md:bottom-auto
+        md:w-auto md:min-w-[200px] md:min-h-48 md:rounded-md md:shadow-lg
+        ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-full md:translate-y-0 pointer-events-none'}`}>
+
+        <button onClick={SwapColor} className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
+          <ArrowLeftRight className="inline" /> Swap colors
+        </button>
+        <span className="flex gap-2 p-2 font-semibold rounded-md cursor-pointer lg:hover:bg-light-gray">
+          <Eye className="inline" /> Color blindness Simulator
+        </span>
+        <span className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
+          <Save className="inline" /> Saved Palettes
+        </span>
+
+        <SubMenu
+          label="Copy as"
+          icon={<Copy className="inline" />}
+          items={[
+            { label: "CSS", icon: <FaCss size={25}/> ,onClick: () => copyAsCss(color,color1) },
+             { label: "Tailwind", icon: <RiTailwindCssFill size={25}/>, onClick: () => copyAsTailwind(color, color1) },
+            { label: "URL", icon: <Link/>, onClick: () => console.log("copy url") },
+          ]}
+        />
+
+        <span className="flex gap-2 p-2 font-semibold rounded-md cursor-pointer lg:hover:bg-light-gray">
+          <FileUp className="inline" /> Export SVG
+        </span>
+        <button onClick={() => setFullscreen(true)} className="flex gap-2 p-2 font-semibold transition-all duration-300 ease-in-out rounded-md cursor-pointer lg:hover:bg-light-gray active:scale-95 active:bg-light-gray">
+          <Maximize2 className="inline" /> View Fullscreen
+        </button>
+
+        <Fullscreen_Preview isOpen={isFullScreen} color={color} color1={color1} onClose={() => setFullscreen(false)} />
+      </div>
+    )
+  }
+)
+
+CardTool.displayName = "CardTool"
+export default CardTool
+

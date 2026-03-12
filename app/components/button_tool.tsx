@@ -8,26 +8,20 @@ Settings
 export default function ToolButton({color,color1,onColorChange,onColorChange1}:any)
 {
     const isOpen= true
-const [showTool,setShowTool] = useState(false)
+    const [showTool,setShowTool] = useState(false)
+    const cardToolRef = useRef<HTMLDivElement>(null)
     const inputRef = useRef<HTMLButtonElement>(null)
-    useEffect(()=>{
-       const  handleClickOutside = (event:MouseEvent)=>
-       {
-        if(inputRef.current && !inputRef.current?.contains(event.target as Node))
-        {
-            setShowTool(false)
-        }
-        
-       }//Create the function to run on every click
 
-       document.addEventListener("click",handleClickOutside)//Attach an event listener to each time the screen is taped on
-       
-       return()=>
-       {
-        document.removeEventListener("click",handleClickOutside);//Remove the eventlistener for freeing up memory and avoiding memory leaks 
-       }
-    })
-
+useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    const target = event.target as Node
+    if (!inputRef.current?.contains(target) && !cardToolRef.current?.contains(target)) {
+      setShowTool(false)
+    }
+  }
+  document.addEventListener("click", handleClickOutside)
+  return () => document.removeEventListener("click", handleClickOutside)
+}, [])
     return(
         <>
         <button 
@@ -42,7 +36,7 @@ const [showTool,setShowTool] = useState(false)
 </button>
 <Tooltip id="preview_tooltip" style={{borderRadius :"6px",fontSize : "15px",padding: "8px"}}   place="top"
   delayShow={300} />
-         <CardTool color = {color} color1= {color1} onColorChange={onColorChange} onColorChange1={onColorChange1} isOpen={showTool}/>
+         <CardTool ref={cardToolRef} color = {color} color1= {color1} onColorChange={onColorChange} onColorChange1={onColorChange1} isOpen={showTool}/>
       
                 </>
             
