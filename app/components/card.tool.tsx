@@ -102,6 +102,10 @@ const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color
           <Save className="inline" /> Saved Palettes
         </button>
 
+         <button onClick={() => setFullscreen(true)} className="flex gap-2 p-2 font-semibold transition-all duration-300 ease-in-out rounded-md cursor-pointer lg:hover:bg-light-gray active:scale-95 active:bg-light-gray">
+          <Maximize2 className="inline" /> View Fullscreen
+        </button>
+
         <SubMenu
           label="Copy as"
           icon={<Copy className="inline" />}
@@ -112,13 +116,8 @@ const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color
           ]}
         />
 
-        <span className="flex gap-2 p-2 font-semibold rounded-md cursor-pointer lg:hover:bg-light-gray">
-          <FileUp className="inline" /> Export SVG
-        </span>
-        <button onClick={() => setFullscreen(true)} className="flex gap-2 p-2 font-semibold transition-all duration-300 ease-in-out rounded-md cursor-pointer lg:hover:bg-light-gray active:scale-95 active:bg-light-gray">
-          <Maximize2 className="inline" /> View Fullscreen
-        </button>
-
+        
+       
         <Fullscreen_Preview isOpen={isFullScreen} color={color} color1={color1} onClose={() => setFullscreen(false)} />
         <ColorBlindSimulator isOpen={isColorBlind} onClose={() => setIsColorBlind(false)} color={color} color1={color1} />
         

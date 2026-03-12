@@ -29,7 +29,7 @@ export default function HowItWorks() {
     <>
       <button
         onClick={open}
-        className={` whitespace-nowrap  text-[15px] text-white bg-orange-brand rounded-[10px] w-[120px] transition-colors h-8 hover:bg-[#C4664A]`}
+        className={` whitespace-nowrap  text-[15px] text-white bg-orange-brand rounded-[10px] w-[120px] transition-all  h-8 md:hover:bg-[#C4664A] active:scale-95`}
       >
         How it works?
       </button>
