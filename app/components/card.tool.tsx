@@ -1,5 +1,6 @@
 "use client"
 import Fullscreen_Preview from "./fullscreen_preview";
+import ColorBlindSimulator from "./colorblind";
 import { createPortal } from 'react-dom'
 import { ColorTranslator } from "colortranslator";
 import { useState, forwardRef } from "react";
@@ -60,7 +61,7 @@ function SubMenu({ label, icon, items }: { label: string, icon: React.ReactNode,
 const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color1: any, onColorChange: any, onColorChange1: any }>(
   ({ isOpen, color, color1, onColorChange, onColorChange1 }, ref) => {
     const [isFullScreen, setFullscreen] = useState(false)
-
+    const [isColorBlind, setIsColorBlind] = useState(false)
     const SwapColor = () => {
       onColorChange(color1)
       onColorChange1(color)
@@ -92,9 +93,9 @@ const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color
         <button onClick={SwapColor} className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
           <ArrowLeftRight className="inline" /> Swap colors
         </button>
-        <span className="flex gap-2 p-2 font-semibold rounded-md cursor-pointer lg:hover:bg-light-gray">
+        <button onClick={() => setIsColorBlind(true)} className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
           <Eye className="inline" /> Color blindness Simulator
-        </span>
+        </button>
         <span className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
           <Save className="inline" /> Saved Palettes
         </span>
@@ -117,6 +118,7 @@ const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color
         </button>
 
         <Fullscreen_Preview isOpen={isFullScreen} color={color} color1={color1} onClose={() => setFullscreen(false)} />
+        <ColorBlindSimulator isOpen={isColorBlind} onClose={() => setIsColorBlind(false)} color={color} color1={color1} />
       </div>
     )
   }
