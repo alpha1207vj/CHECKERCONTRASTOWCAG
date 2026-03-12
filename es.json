@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "howItWorks": "¿Cómo funciona?"
+  },
+  "footer": {
+    "copyright": "Contrasto por",
+    "description": "un verificador de contraste WCAG para devs y diseñadores comprometidos con la accesibilidad."
+  },
+  "hero": {
+    "title": "VERIFICADOR DE CONTRASTE",
+    "subtitle": "Calcula el ratio de contraste entre los colores de texto y fondo."
+  },
+  "colorPicker": {
+    "backgroundColor": "Color de fondo",
+    "foregroundColor": "Color del texto",
+    "placeholder": "#FCFCFC",
+    "copied": "¡Color copiado al portapapeles!"
+  },
+  "contrastResult": {
+    "label": "Ratio de contraste",
+    "excellent": "Contraste excelente",
+    "good": "Buen contraste",
+    "acceptable": "Aceptable solo para texto grande",
+    "poor": "Contraste insuficiente — no supera el WCAG"
+  },
+  "checkCondition": {
+    "category": "Categoría",
+    "normalText": "Texto normal",
+    "largeText": "Texto grande",
+    "uiElements": "Elementos UI",
+    "pass": "Aprobado",
+    "fail": "Reprobado",
+    "noteSmall": "El texto pequeño (menos de 18pt) requiere un ratio mínimo de <strong>4.5:1</strong> para un buen contraste.",
+    "noteLarge": "El texto grande (más de 18pt o negrita superior a 14pt) requiere un ratio mínimo de <strong>3:1</strong>.",
+    "noteUi": "Los componentes de UI e iconos requieren un ratio mínimo de <strong>3:1</strong>."
+  },
+  "tools": {
+    "customize": "Personalizar vista previa",
+    "swapColors": "Intercambiar colores",
+    "colorBlindness": "Simulador de daltonismo",
+    "savedPalettes": "Paletas guardadas",
+    "viewFullscreen": "Ver en pantalla completa",
+    "copyAs": "Copiar como",
+    "exportSvg": "Exportar SVG",
+    "copiedAs": "Copiado como"
+  },
+  "save": {
+    "title": "Paletas guardadas",
+    "saveButton": "Guardar paleta actual",
+    "empty": "Aún no hay paletas guardadas",
+    "alreadySaved": "¡Ya guardada!"
+  },
+  "colorBlind": {
+    "normalVision": "Visión normal",
+    "protanopia": "Protanopía",
+    "protanopiaLabel": "Ceguera al rojo",
+    "deuteranopia": "Deuteranopía",
+    "deuteranopiaLabel": "Ceguera al verde",
+    "tritanopia": "Tritanopía",
+    "tritanopiaLabel": "Ceguera al azul",
+    "achromatopsia": "Acromatopsia",
+    "achromatopsiaLabel": "Daltonismo total",
+    "colorCopied": "Color copiado al portapapeles"
+  },
+  "howItWorks": {
+    "title": "Cómo funciona",
+    "whatIsTitle": "¿Qué es el contraste de color?",
+    "whatIsBody": "El contraste de color es la diferencia de luminancia entre dos colores — generalmente el texto y su fondo. Un ratio más alto significa que el texto es más fácil de leer, especialmente para personas con discapacidad visual. El ratio varía de 1:1 (colores idénticos) a 21:1 (negro sobre blanco).",
+    "howToUseTitle": "Cómo usar esta herramienta",
+    "step01": "Elige tu color de primer plano — el color de tu texto o icono.",
+    "step02": "Elige tu color de fondo — la superficie detrás de tu texto.",
+    "step03": "El ratio de contraste se calcula al instante y se muestra en tiempo real.",
+    "step04": "Consulta la tabla para ver qué niveles WCAG supera o no tu combinación.",
+    "wcagTitle": "Niveles de contraste WCAG",
+    "wcagBody": "El WCAG (Web Content Accessibility Guidelines) define dos niveles de conformidad de contraste:",
+    "aaLabel": "Nivel mínimo",
+    "aaRule1": "Texto normal (menos de 18pt) — ratio mínimo de 4.5:1",
+    "aaRule2": "Texto grande (más de 18pt o negrita superior a 14pt) — ratio mínimo de 3:1",
+    "aaRule3": "Componentes UI e iconos — ratio mínimo de 3:1",
+    "aaaLabel": "Nivel mejorado",
+    "aaaRule1": "Texto normal — ratio mínimo de 7:1",
+    "aaaRule2": "Texto grande — ratio mínimo de 4.5:1",
+    "scaleTitle": "Escala de ratios de contraste",
+    "scalePoor": "Insuficiente",
+    "scaleAcceptable": "Aceptable (solo texto grande)",
+    "scaleGood": "Bueno",
+    "scaleExcellent": "Excelente"
+  }
+}

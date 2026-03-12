@@ -15,12 +15,20 @@ export default function SaveColors({
   onClose,
   color,
   color1,
+  onColorChange,onColorChange1
 }: {
   isOpen: boolean;
   onClose: () => void;
   color: string;
   color1: string;
+  onColorChange : any;
+  onColorChange1 : any
 }) {
+  const HandleSaveColorUse = (value: any,value1:any) => 
+  {
+    onColorChange(value);
+    onColorChange1(value1);
+  }
   const [palettes, setPalettes] = useState<Palette[]>([]);
 
   useEffect(() => {
@@ -94,9 +102,11 @@ export default function SaveColors({
             </p>
           )}
           {palettes.map((p) => (
-            <div
+            <div 
+              onClick={()=>{HandleSaveColorUse(p.bg,p.fg)}}
               key={p.id}
-              className="flex items-center justify-between p-2 px-0 rounded-lg hover:bg-gray-50"
+              
+              className="flex items-center justify-between p-2 px-2 rounded-lg hover:bg-gray-50"
             >
               <div className="flex items-center gap-2">
                 <div className="flex">

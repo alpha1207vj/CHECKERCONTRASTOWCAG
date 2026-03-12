@@ -27,12 +27,13 @@ export default function HowItWorks() {
 
   return (
     <>
-      <button
-        onClick={open}
-        className={` whitespace-nowrap  text-[15px] text-white bg-orange-brand rounded-[10px] w-[120px] transition-all  h-8 md:hover:bg-[#C4664A] active:scale-95`}
-      >
-        How it works?
-      </button>
+   <button
+  onClick={open}
+  className="rounded relative inline-flex group items-center justify-center px-2 py-1 cursor-pointer border-b-4 border-l-2 active:border-[#C4664A] active:shadow-none active:scale-95 lg:active:scale-100 shadow-lg bg-gradient-to-tr from-[#C4664A] to-[#DA7756] border-[#C4664A] text-[#FCFCFC] whitespace-nowrap transition-transform"
+>
+  <span className="absolute w-0 h-0 bg-white rounded-full lg:transition-all lg:duration-300 lg:ease-out lg:group-hover:w-32 lg:group-hover:h-32 opacity-10"></span>
+  <span className="relative text-[15px] font-medium">How it works?</span>
+</button>
 
       {isOpen && (
         <div

@@ -126,6 +126,8 @@ const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color
   onClose={() => setSave(false)}
   color={color}
   color1={color1}
+  onColorChange = {onColorChange}
+  onColorChange1 = {onColorChange1} 
 />
       </div>
     )

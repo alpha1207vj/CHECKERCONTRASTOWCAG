@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "howItWorks": "How it works?"
+  },
+  "footer": {
+    "copyright": "Contrasto by",
+    "description": "a WCAG contrast checker for devs and designers who care about accessibility."
+  },
+  "hero": {
+    "title": "COLOR CONTRAST CHECKER",
+    "subtitle": "Calculate the contrast ratio of text and background colors."
+  },
+  "colorPicker": {
+    "backgroundColor": "Background color",
+    "foregroundColor": "Foreground color",
+    "placeholder": "#FCFCFC",
+    "copied": "Color copied to the clipboard!"
+  },
+  "contrastResult": {
+    "label": "Contrast ratio",
+    "excellent": "Excellent contrast",
+    "good": "Good contrast",
+    "acceptable": "Acceptable for large text only",
+    "poor": "Poor contrast — fails WCAG"
+  },
+  "checkCondition": {
+    "category": "Category",
+    "normalText": "Normal text",
+    "largeText": "Large text",
+    "uiElements": "UI Elements",
+    "pass": "Pass",
+    "fail": "Fail",
+    "noteSmall": "Small text (below 18pt) requires a minimum ratio of <strong>4.5:1</strong> for good contrast.",
+    "noteLarge": "Large text (above 18pt or bold above 14pt) requires a minimum ratio of <strong>3:1</strong>.",
+    "noteUi": "UI components and icons require a minimum ratio of <strong>3:1</strong>."
+  },
+  "tools": {
+    "customize": "Customize preview",
+    "swapColors": "Swap colors",
+    "colorBlindness": "Color blindness Simulator",
+    "savedPalettes": "Saved Palettes",
+    "viewFullscreen": "View Fullscreen",
+    "copyAs": "Copy as",
+    "exportSvg": "Export SVG",
+    "copiedAs": "Copied as"
+  },
+  "save": {
+    "title": "Saved Palettes",
+    "saveButton": "Save current palette",
+    "empty": "No saved palettes yet",
+    "alreadySaved": "Already saved!"
+  },
+  "colorBlind": {
+    "normalVision": "Normal Vision",
+    "protanopia": "Protanopia",
+    "protanopiaLabel": "Red blind",
+    "deuteranopia": "Deuteranopia",
+    "deuteranopiaLabel": "Green blind",
+    "tritanopia": "Tritanopia",
+    "tritanopiaLabel": "Blue blind",
+    "achromatopsia": "Achromatopsia",
+    "achromatopsiaLabel": "Full color blind",
+    "colorCopied": "Color copied to clipboard"
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "whatIsTitle": "What is color contrast?",
+    "whatIsBody": "Color contrast is the difference in luminance between two colors — typically text and its background. A higher contrast ratio means text is easier to read, especially for people with visual impairments. The contrast ratio ranges from 1:1 (identical colors) to 21:1 (black on white).",
+    "howToUseTitle": "How to use this tool",
+    "step01": "Pick your foreground color — the color of your text or icon.",
+    "step02": "Pick your background color — the surface behind your text.",
+    "step03": "The contrast ratio is calculated instantly and displayed in real time.",
+    "step04": "Check the table to see which WCAG levels your combination passes or fails.",
+    "wcagTitle": "WCAG Contrast Levels",
+    "wcagBody": "WCAG (Web Content Accessibility Guidelines) defines two levels of contrast compliance:",
+    "aaLabel": "Minimum Standard",
+    "aaRule1": "Normal text (below 18pt) — minimum ratio of 4.5:1",
+    "aaRule2": "Large text (above 18pt or bold above 14pt) — minimum ratio of 3:1",
+    "aaRule3": "UI components and icons — minimum ratio of 3:1",
+    "aaaLabel": "Enhanced Standard",
+    "aaaRule1": "Normal text — minimum ratio of 7:1",
+    "aaaRule2": "Large text — minimum ratio of 4.5:1",
+    "scaleTitle": "Contrast ratio scale",
+    "scalePoor": "Poor",
+    "scaleAcceptable": "Acceptable (large text only)",
+    "scaleGood": "Good",
+    "scaleExcellent": "Excellent"
+  }
+}

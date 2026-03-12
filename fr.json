@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "howItWorks": "Comment ça marche ?"
+  },
+  "footer": {
+    "copyright": "Contrasto par",
+    "description": "un vérificateur de contraste WCAG pour les devs et designers soucieux de l'accessibilité."
+  },
+  "hero": {
+    "title": "VÉRIFICATEUR DE CONTRASTE",
+    "subtitle": "Calculez le ratio de contraste entre vos couleurs de texte et de fond."
+  },
+  "colorPicker": {
+    "backgroundColor": "Couleur de fond",
+    "foregroundColor": "Couleur du texte",
+    "placeholder": "#FCFCFC",
+    "copied": "Couleur copiée dans le presse-papiers !"
+  },
+  "contrastResult": {
+    "label": "Ratio de contraste",
+    "excellent": "Contraste excellent",
+    "good": "Bon contraste",
+    "acceptable": "Acceptable pour les grands textes uniquement",
+    "poor": "Contraste insuffisant — échoue au WCAG"
+  },
+  "checkCondition": {
+    "category": "Catégorie",
+    "normalText": "Texte normal",
+    "largeText": "Grand texte",
+    "uiElements": "Éléments UI",
+    "pass": "Conforme",
+    "fail": "Non conforme",
+    "noteSmall": "Le texte petit (moins de 18pt) nécessite un ratio minimum de <strong>4.5:1</strong> pour un bon contraste.",
+    "noteLarge": "Le grand texte (plus de 18pt ou gras au-dessus de 14pt) nécessite un ratio minimum de <strong>3:1</strong>.",
+    "noteUi": "Les composants UI et icônes nécessitent un ratio minimum de <strong>3:1</strong>."
+  },
+  "tools": {
+    "customize": "Personnaliser l'aperçu",
+    "swapColors": "Inverser les couleurs",
+    "colorBlindness": "Simulateur de daltonisme",
+    "savedPalettes": "Palettes sauvegardées",
+    "viewFullscreen": "Voir en plein écran",
+    "copyAs": "Copier en tant que",
+    "exportSvg": "Exporter en SVG",
+    "copiedAs": "Copié en tant que"
+  },
+  "save": {
+    "title": "Palettes sauvegardées",
+    "saveButton": "Sauvegarder la palette actuelle",
+    "empty": "Aucune palette sauvegardée",
+    "alreadySaved": "Déjà sauvegardée !"
+  },
+  "colorBlind": {
+    "normalVision": "Vision normale",
+    "protanopia": "Protanopie",
+    "protanopiaLabel": "Cécité au rouge",
+    "deuteranopia": "Deutéranopie",
+    "deuteranopiaLabel": "Cécité au vert",
+    "tritanopia": "Tritanopie",
+    "tritanopiaLabel": "Cécité au bleu",
+    "achromatopsia": "Achromatopsie",
+    "achromatopsiaLabel": "Daltonisme total",
+    "colorCopied": "Couleur copiée dans le presse-papiers"
+  },
+  "howItWorks": {
+    "title": "Comment ça marche",
+    "whatIsTitle": "Qu'est-ce que le contraste des couleurs ?",
+    "whatIsBody": "Le contraste des couleurs est la différence de luminance entre deux couleurs — généralement le texte et son arrière-plan. Un ratio de contraste élevé signifie que le texte est plus facile à lire, notamment pour les personnes malvoyantes. Le ratio varie de 1:1 (couleurs identiques) à 21:1 (noir sur blanc).",
+    "howToUseTitle": "Comment utiliser cet outil",
+    "step01": "Choisissez votre couleur de premier plan — la couleur de votre texte ou icône.",
+    "step02": "Choisissez votre couleur de fond — la surface derrière votre texte.",
+    "step03": "Le ratio de contraste est calculé instantanément et affiché en temps réel.",
+    "step04": "Consultez le tableau pour voir quels niveaux WCAG votre combinaison atteint ou non.",
+    "wcagTitle": "Niveaux de contraste WCAG",
+    "wcagBody": "Le WCAG (Web Content Accessibility Guidelines) définit deux niveaux de conformité au contraste :",
+    "aaLabel": "Niveau minimum",
+    "aaRule1": "Texte normal (moins de 18pt) — ratio minimum de 4.5:1",
+    "aaRule2": "Grand texte (plus de 18pt ou gras au-dessus de 14pt) — ratio minimum de 3:1",
+    "aaRule3": "Composants UI et icônes — ratio minimum de 3:1",
+    "aaaLabel": "Niveau renforcé",
+    "aaaRule1": "Texte normal — ratio minimum de 7:1",
+    "aaaRule2": "Grand texte — ratio minimum de 4.5:1",
+    "scaleTitle": "Échelle des ratios de contraste",
+    "scalePoor": "Insuffisant",
+    "scaleAcceptable": "Acceptable (grands textes uniquement)",
+    "scaleGood": "Bon",
+    "scaleExcellent": "Excellent"
+  }
+}

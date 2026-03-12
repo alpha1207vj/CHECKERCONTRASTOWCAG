@@ -1,0 +1,89 @@
+{
+  "nav": {
+    "howItWorks": "Como funciona?"
+  },
+  "footer": {
+    "copyright": "Contrasto por",
+    "description": "um verificador de contraste WCAG para devs e designers comprometidos com a acessibilidade."
+  },
+  "hero": {
+    "title": "VERIFICADOR DE CONTRASTE",
+    "subtitle": "Calcule a proporção de contraste entre cores de texto e fundo."
+  },
+  "colorPicker": {
+    "backgroundColor": "Cor de fundo",
+    "foregroundColor": "Cor do texto",
+    "placeholder": "#FCFCFC",
+    "copied": "Cor copiada para a área de transferência!"
+  },
+  "contrastResult": {
+    "label": "Proporção de contraste",
+    "excellent": "Contraste excelente",
+    "good": "Bom contraste",
+    "acceptable": "Aceitável apenas para texto grande",
+    "poor": "Contraste insuficiente — reprovado no WCAG"
+  },
+  "checkCondition": {
+    "category": "Categoria",
+    "normalText": "Texto normal",
+    "largeText": "Texto grande",
+    "uiElements": "Elementos de UI",
+    "pass": "Aprovado",
+    "fail": "Reprovado",
+    "noteSmall": "Texto pequeno (abaixo de 18pt) requer uma proporção mínima de <strong>4.5:1</strong> para bom contraste.",
+    "noteLarge": "Texto grande (acima de 18pt ou negrito acima de 14pt) requer uma proporção mínima de <strong>3:1</strong>.",
+    "noteUi": "Componentes de UI e ícones requerem uma proporção mínima de <strong>3:1</strong>."
+  },
+  "tools": {
+    "customize": "Personalizar pré-visualização",
+    "swapColors": "Inverter cores",
+    "colorBlindness": "Simulador de daltonismo",
+    "savedPalettes": "Paletas salvas",
+    "viewFullscreen": "Ver em tela cheia",
+    "copyAs": "Copiar como",
+    "exportSvg": "Exportar SVG",
+    "copiedAs": "Copiado como"
+  },
+  "save": {
+    "title": "Paletas salvas",
+    "saveButton": "Salvar paleta atual",
+    "empty": "Nenhuma paleta salva ainda",
+    "alreadySaved": "Já salva!"
+  },
+  "colorBlind": {
+    "normalVision": "Visão normal",
+    "protanopia": "Protanopia",
+    "protanopiaLabel": "Cegueira ao vermelho",
+    "deuteranopia": "Deuteranopia",
+    "deuteranopiaLabel": "Cegueira ao verde",
+    "tritanopia": "Tritanopia",
+    "tritanopiaLabel": "Cegueira ao azul",
+    "achromatopsia": "Acromatopsia",
+    "achromatopsiaLabel": "Daltonismo total",
+    "colorCopied": "Cor copiada para a área de transferência"
+  },
+  "howItWorks": {
+    "title": "Como funciona",
+    "whatIsTitle": "O que é contraste de cores?",
+    "whatIsBody": "O contraste de cores é a diferença de luminância entre duas cores — geralmente o texto e o seu fundo. Uma proporção maior significa que o texto é mais fácil de ler, especialmente para pessoas com deficiência visual. A proporção varia de 1:1 (cores idênticas) a 21:1 (preto sobre branco).",
+    "howToUseTitle": "Como usar esta ferramenta",
+    "step01": "Escolha sua cor de primeiro plano — a cor do seu texto ou ícone.",
+    "step02": "Escolha sua cor de fundo — a superfície atrás do seu texto.",
+    "step03": "A proporção de contraste é calculada instantaneamente e exibida em tempo real.",
+    "step04": "Consulte a tabela para ver quais níveis WCAG sua combinação atinge ou não.",
+    "wcagTitle": "Níveis de contraste WCAG",
+    "wcagBody": "O WCAG (Web Content Accessibility Guidelines) define dois níveis de conformidade de contraste:",
+    "aaLabel": "Nível mínimo",
+    "aaRule1": "Texto normal (abaixo de 18pt) — proporção mínima de 4.5:1",
+    "aaRule2": "Texto grande (acima de 18pt ou negrito acima de 14pt) — proporção mínima de 3:1",
+    "aaRule3": "Componentes de UI e ícones — proporção mínima de 3:1",
+    "aaaLabel": "Nível aprimorado",
+    "aaaRule1": "Texto normal — proporção mínima de 7:1",
+    "aaaRule2": "Texto grande — proporção mínima de 4.5:1",
+    "scaleTitle": "Escala de proporções de contraste",
+    "scalePoor": "Insuficiente",
+    "scaleAcceptable": "Aceitável (somente texto grande)",
+    "scaleGood": "Bom",
+    "scaleExcellent": "Excelente"
+  }
+}
