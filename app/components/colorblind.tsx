@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { simulate } from '@bjornlu/colorblind'
 import { semibold_inter, roboto } from "../font"
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight,BadgeCheck } from 'lucide-react'
+
 
 const types = [
   { label: 'Normal Vision', type: null },
@@ -40,12 +41,21 @@ const simulateColor = (hex: string, type: string | null) => {
 export default function ColorBlindSimulator({ isOpen, onClose, color, color1 }: { isOpen: boolean, onClose: () => void, color: string, color1: string }) {
   const [current, setCurrent] = useState(0)
   const [quote] = useState(() => quotes[Math.floor(Math.random() * quotes.length)])
+  const [toast ,setToast] = useState(false)
+   
+  const HandleToast = ()=>
+  {
+    setToast(!toast)
+  }
 
   if (!isOpen) return null
 
   const simColor = simulateColor(color, types[current].type)
   const simColor1 = simulateColor(color1, types[current].type)
-
+  const onClickCopy = (value: any)=>
+  {
+    navigator.clipboard.writeText(`${value}`)
+  }
   return createPortal(
     <div className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center">
       {/* backdrop */}
@@ -86,12 +96,19 @@ export default function ColorBlindSimulator({ isOpen, onClose, color, color1 }: 
         {/* color swatches */}
         <div className="flex border-t border-gray-100">
           <div className="flex flex-col items-center flex-1 gap-1 py-3">
-            <div className="w-8 h-8 border border-gray-200 rounded-full" style={{ backgroundColor: simColor }} />
+            <button onClick={()=>{onClickCopy(simColor),HandleToast()}} className="w-8 h-8 border border-gray-200 rounded-full" style={{ backgroundColor: simColor }} />
             <span className="font-mono text-xs opacity-60">{simColor}</span>
           </div>
+           {toast && createPortal(
+  <span className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white text-sm px-4 py-2 rounded-full shadow-lg z-[9999] pointer-events-none whitespace-nowrap transition-all duration-300 ease-in-out toast-enter flex gap-2">
+    <BadgeCheck/>
+    Color copied to clipboard
+  </span>,
+  document.body
+)}
           <div className="w-px bg-gray-100" />
           <div className="flex flex-col items-center flex-1 gap-1 py-3">
-            <div className="w-8 h-8 border border-gray-200 rounded-full" style={{ backgroundColor: simColor1 }} />
+            <button onClick={()=>{onClickCopy(simColor1),HandleToast()}} className="w-8 h-8 border border-gray-200 rounded-full" style={{ backgroundColor: simColor1 }} />
             <span className="font-mono text-xs opacity-60">{simColor1}</span>
           </div>
         </div>
