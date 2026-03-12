@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { roboto ,semibold_roboto} from "../font"
 import { Chrome } from '@uiw/react-color'
+import { Tooltip } from "react-tooltip";
 import { LuCopy } from "react-icons/lu";
 import { BadgeCheck } from "lucide-react";
 
@@ -50,12 +51,13 @@ export default function ColorInput1({ color, onColorChange }: any) {
             className={`${roboto.className} w-full h-full text-[15px] p-2 border-2 outline-none rounded-br-md rounded-bl-md caret-gray-brand border-transparent`}
           />
           <div className="flex items-center justify-center pr-2 bg-white rounded-br-md">
-            <button  onClick={handleCopy} className="cursor-pointer transition-transform duration-150 active:scale-90 flex items-center justify-center w-[35px] h-[35px]  rounded-full lg:hover:bg-[#E8E0DE] ">
+            <button data-tooltip-id="copy_tip" data-tooltip-content="Copy" onClick={handleCopy} className="cursor-pointer transition-transform duration-150 active:scale-90 flex items-center justify-center w-[35px] h-[35px]  rounded-full lg:hover:bg-[#E8E0DE] ">
               <LuCopy
              
                 
               />
             </button>
+            <Tooltip id="copy_tip" style={{fontSize : "15px"}}/>
           </div>
         </div>
 

@@ -4,6 +4,7 @@ import { roboto, semibold_roboto } from "../font"
 import { Chrome } from '@uiw/react-color'
 import { LuCopy } from "react-icons/lu";
 import { BadgeCheck } from "lucide-react";
+import { Tooltip } from "react-tooltip";
 
 export default function ColorInput2({ color1, onColorChange1 }: any) {
   const [showPicker, setShowPicker] = useState(false)
@@ -49,13 +50,16 @@ export default function ColorInput2({ color1, onColorChange1 }: any) {
             placeholder="#FCFCFC"
             className={`${roboto.className} w-full h-full text-[15px] p-2 border-2 outline-none rounded-br-md rounded-bl-md caret-gray-brand border-transparent`}
           />
-          <div className="flex items-center justify-center pr-2 bg-white rounded-br-md">
-            <button onClick={handleCopy} className="cursor-pointer transition-transform duration-150 active:scale-90 flex items-center justify-center w-[35px] h-[35px] rounded-full lg:hover:bg-[#E8E0DE]">
-              <LuCopy />
+           <div className="flex items-center justify-center pr-2 bg-white rounded-br-md">
+            <button data-tooltip-id="copy_tip" data-tooltip-content="Copy" onClick={handleCopy} className="cursor-pointer transition-transform duration-150 active:scale-90 flex items-center justify-center w-[35px] h-[35px]  rounded-full lg:hover:bg-[#E8E0DE] ">
+              <LuCopy
+             
+                
+              />
             </button>
+            <Tooltip id="copy_tip" style={{fontSize : "15px"}}/>
           </div>
         </div>
-
         {showPicker && (
           <div className="absolute z-50 w-full md:top-[-240px] top-[60px]">
             <Chrome
@@ -84,3 +88,4 @@ export default function ColorInput2({ color1, onColorChange1 }: any) {
     </>
   )
 }
+

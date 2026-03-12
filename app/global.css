@@ -15,3 +15,17 @@
     color: white;
   }
 }
+.react-tooltip {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.react-tooltip.react-tooltip--show {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .react-tooltip {
+    display: none !important;
+  }
+}
