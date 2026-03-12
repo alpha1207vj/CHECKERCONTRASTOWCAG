@@ -72,6 +72,11 @@ const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color
    {
      navigator.clipboard.writeText(`color : ${fg};\n background-color : ${back}`)
    }
+   const copyAsUrl = ()=>
+   {
+     navigator.clipboard.writeText(`${window.location.origin}?fg=${encodeURIComponent(color)}&bg=${encodeURIComponent(color1)}`)
+   }
+
     return (
       <div ref={ref} className={`${roboto.className} transition-all duration-300 ease-in-out gap-4 text-sm flex p-4 flex-col z-[100] bg-white-brand
         fixed bottom-0 left-0 right-0 rounded-t-2xl shadow-2xl top-42
@@ -95,7 +100,7 @@ const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color
           items={[
             { label: "CSS", icon: <FaCss size={25}/> ,onClick: () => copyAsCss(color,color1) },
              { label: "Tailwind", icon: <RiTailwindCssFill size={25}/>, onClick: () => copyAsTailwind(color, color1) },
-            { label: "URL", icon: <Link/>, onClick: () => console.log("copy url") },
+            { label: "URL", icon: <Link/>, onClick: () => copyAsUrl() },
           ]}
         />
 

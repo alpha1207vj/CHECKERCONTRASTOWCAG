@@ -1,4 +1,5 @@
 "use client"
+import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic'
 import Loading from '../loading';
 import { useState} from "react";
@@ -9,13 +10,17 @@ import { EllipseIcon, Ellipsis,ToolCase ,Settings} from 'lucide-react';
 import HowItWorks from "./howitworks";
 import ToolButton from './button_tool';
 import Fullscreen_Preview from './fullscreen_preview';
+import { decodeAction } from 'next/dist/server/app-render/entry-base';
 const TestColor = dynamic(() => import('./test_color'), {
   ssr: false
 })
 export default function Main_Component()
 {
-    const [color,SetColor] = useState('#ACC8E5')
-  const [color1,SetColor1] = useState('#000000')
+  const searchParams = useSearchParams()
+  const fg= searchParams.get(('fg'))
+  const bg = searchParams.get(('bg'))
+  const [color,SetColor] = useState(fg ?  decodeURIComponent(fg):"#ACC8E5")
+  const [color1,SetColor1] = useState(bg ? decodeURIComponent(bg): '#000000')
     return(
         <>
 
