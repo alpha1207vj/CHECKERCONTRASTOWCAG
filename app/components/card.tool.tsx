@@ -1,6 +1,7 @@
 "use client"
 import Fullscreen_Preview from "./fullscreen_preview";
 import { createPortal } from 'react-dom'
+import { ColorTranslator } from "colortranslator";
 import { useState, forwardRef } from "react";
 import { roboto } from "../font"
 import { FaCss } from "react-icons/fa6";
@@ -70,7 +71,11 @@ const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color
    }
    const copyAsCss = (fg:any,back:any)=>
    {
-     navigator.clipboard.writeText(`color : ${fg};\n background-color : ${back}`)
+     const rgba1= ColorTranslator.toRGBA(fg);
+     const rgba2= ColorTranslator.toRGBA(back);
+     const hsl1 = ColorTranslator.toHSL(fg)
+     const hsl2= ColorTranslator.toHSL(back);
+     navigator.clipboard.writeText(`  /*HEX VALUES*/ \n color : ${fg};\n background-color : ${back}  \n /*RGBA VALUES*/ \n color : ${rgba1};\n background-color : ${rgba2} \n /*HSL VALUES*/ color : ${hsl1};\n background-color : ${hsl2} `)
    }
    const copyAsUrl = ()=>
    {
