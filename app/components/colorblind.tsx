@@ -45,7 +45,8 @@ export default function ColorBlindSimulator({ isOpen, onClose, color, color1 }: 
    
   const HandleToast = ()=>
   {
-    setToast(!toast)
+    setToast(true)
+  setTimeout(() => setToast(false), 1000)
   }
 
   if (!isOpen) return null
@@ -100,7 +101,7 @@ export default function ColorBlindSimulator({ isOpen, onClose, color, color1 }: 
             <span className="font-mono text-xs opacity-60">{simColor}</span>
           </div>
            {toast && createPortal(
-  <span className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white text-sm px-4 py-2 rounded-full shadow-lg z-[9999] pointer-events-none whitespace-nowrap transition-all duration-300 ease-in-out toast-enter flex gap-2">
+  <span className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-black text-white text-sm px-4 py-2 rounded-full shadow-lg z-[9999] pointer-events-none whitespace-nowrap transition-all duration-100 ease-in-out toast-enter flex gap-2">
     <BadgeCheck/>
     Color copied to clipboard
   </span>,

@@ -8,6 +8,7 @@ import { roboto } from "../font"
 import { FaCss } from "react-icons/fa6";
 import { ArrowLeftRight, Eye, Save, FileUp, Maximize2 ,BadgeCheck, Copy,Link} from 'lucide-react';
 import { RiTailwindCssFill } from "react-icons/ri";
+import SaveColors from "./savecolors";
 
 function SubMenu({ label, icon, items }: { label: string, icon: React.ReactNode, items: { label: string, onClick: () => void, icon: React.ReactNode }[]}) {
   const [open, setOpen] = useState(false)
@@ -18,7 +19,7 @@ function SubMenu({ label, icon, items }: { label: string, icon: React.ReactNode,
     item.onClick()
     setToast(item.label)
     setOpen(false)
-    setTimeout(() => setToast(""), 2000)
+    setTimeout(() => setToast(""), 1000)
     
   }
 
@@ -62,6 +63,7 @@ const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color
   ({ isOpen, color, color1, onColorChange, onColorChange1 }, ref) => {
     const [isFullScreen, setFullscreen] = useState(false)
     const [isColorBlind, setIsColorBlind] = useState(false)
+    const [save,setSave] = useState(false)
     const SwapColor = () => {
       onColorChange(color1)
       onColorChange1(color)
@@ -96,9 +98,9 @@ const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color
         <button onClick={() => setIsColorBlind(true)} className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
           <Eye className="inline" /> Color blindness Simulator
         </button>
-        <span className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
+        <button onClick={() => setSave(true)} className="flex gap-2 p-2 font-semibold duration-150 rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
           <Save className="inline" /> Saved Palettes
-        </span>
+        </button>
 
         <SubMenu
           label="Copy as"
@@ -119,6 +121,13 @@ const CardTool = forwardRef<HTMLDivElement, { isOpen: boolean, color: any, color
 
         <Fullscreen_Preview isOpen={isFullScreen} color={color} color1={color1} onClose={() => setFullscreen(false)} />
         <ColorBlindSimulator isOpen={isColorBlind} onClose={() => setIsColorBlind(false)} color={color} color1={color1} />
+        
+        <SaveColors
+  isOpen={save}
+  onClose={() => setSave(false)}
+  color={color}
+  color1={color1}
+/>
       </div>
     )
   }
