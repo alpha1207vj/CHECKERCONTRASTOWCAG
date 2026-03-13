@@ -31,7 +31,7 @@ function SubMenu({ label, icon, items }: { label: string, icon: React.ReactNode,
     >
       <button
         onClick={(e) => { e.stopPropagation(); setOpen(!open) }}
-        className="flex gap-2 p-2 font-semibold duration-100 rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
+        className="flex gap-2 p-2 mb-2 font-semibold duration-300 rounded-md cursor-pointer md:hover:bg-light-gray active:scale-95 active:bg-light-gray">
         {icon} {label}
       </button>
 

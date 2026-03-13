@@ -1,6 +1,6 @@
 'use client'
 import { useState, useRef, useEffect } from "react";
-import { roboto, semibold_roboto } from "../font"
+import { roboto, semibold_roboto } from "./font"
 import { Chrome } from '@uiw/react-color'
 import { LuCopy } from "react-icons/lu";
 import { BadgeCheck } from "lucide-react";

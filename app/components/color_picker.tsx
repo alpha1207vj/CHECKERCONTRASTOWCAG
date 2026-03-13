@@ -3,7 +3,7 @@ import { BadgeCheck,CircleX ,LucideIcon} from 'lucide-react';
 import { roboto,bold_inter } from "../font"
 import ColorInput from "./color_pickerInput1"
 import ContrastResult from "./contrast_result"
-import ColorInput2 from './color_pickerInput2';
+import ColorInput2 from '../color_pickerInput2';
 import ColorInput1 from './color_pickerInput1';
 export default function ColorPicker({color,onColorChange,color1,onColorChange1}:any)
 {
