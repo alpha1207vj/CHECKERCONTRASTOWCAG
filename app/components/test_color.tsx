@@ -21,7 +21,6 @@ import {
   Languages,
   Grid3x3,
   Move,
-  Quote,
   Ear,
   Pointer,
   AudioLines,
@@ -58,240 +57,24 @@ const quotes = [
   { q: "The details are what separate good design from great design.", a: "Unknown" },
 ]
 
-const iconCategories = [
-  {
-    title: "Visual",
-    icons: [
-      { Icon: Eye, label: "Vision" },
-      { Icon: Contrast, label: "Contrast" },
-      { Icon: ZoomIn, label: "Zoom" },
-      { Icon: Sun, label: "Brightness" },
-      { Icon: Moon, label: "Dark Mode" },
-    ]
-  },
-  {
-    title: "Motor",
-    icons: [
-      { Icon: Keyboard, label: "Keyboard Nav" },
-      { Icon: MousePointerClick, label: "Click Area" },
-      { Icon: Hand, label: "Motor Skills" },
-      { Icon: Move, label: "Navigation" },
-      { Icon: Pointer, label: "Precision" },
-    ]
-  },
-  {
-    title: "Auditory",
-    icons: [
-      { Icon: Volume2, label: "Volume" },
-      { Icon: Music, label: "Audio" },
-      { Icon: Speech, label: "Speech" },
-      { Icon: Ear, label: "Hearing" },
-      { Icon: AudioLines, label: "Sound" },
-    ]
-  },
-  {
-    title: "Cognitive",
-    icons: [
-      { Icon: Brain, label: "Cognitive" },
-      { Icon: Type, label: "Typography" },
-      { Icon: Grid3x3, label: "Structure" },
-      { Icon: Languages, label: "Language" },
-      { Icon: Sparkles, label: "Focus" },
-    ]
-  },
-  {
-    title: "General",
-    icons: [
-      { Icon: Accessibility, label: "Accessibility" },
-      { Icon: Image, label: "Alt Text" },
-      { Icon: MonitorPlay, label: "Media" },
-      { Icon: Layers, label: "Hierarchy" },
-      { Icon: Layout, label: "Layout" },
-    ]
-  }
-]
-
 export default function TestColor({ color, onColorChange, color1, onColorChange1 }: any) {
   const [quote] = useState(
     () => quotes[Math.floor(Math.random() * quotes.length)]
   )
-  const [activeTab, setActiveTab] = useState<'quote' | 'icons'>('quote')
-  const [isTransitioning, setIsTransitioning] = useState(false)
-
-  const handleTabChange = (tab: 'quote' | 'icons') => {
-    if (tab === activeTab) return
-    setIsTransitioning(true)
-    setTimeout(() => {
-      setActiveTab(tab)
-      setTimeout(() => {
-        setIsTransitioning(false)
-      }, 50)
-    }, 150)
-  }
 
   return (
     <div className="flex flex-col items-center justify-center w-full p-6">
-      {/* Animated Tab Buttons - Rounded corners added */}
-      <div 
-        className="relative flex gap-2 mb-6 rounded-2xl"
-        style={{ 
-          borderBottom: `1px solid ${color1}20`,
-          borderRadius: '12px 12px 0 0'
-        }}
-      >
-        <button
-          onClick={() => handleTabChange('quote')}
-          className={`flex items-center gap-2 px-4 py-2 text-sm font-bold transition-all duration-300 relative rounded-t-xl ${
-            activeTab === 'quote' ? 'opacity-100' : 'opacity-50 hover:opacity-80'
-          }`}
-          style={{ color: color1 }}>
-          Quote of the Day
-          {activeTab === 'quote' && (
-            <span 
-              className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full transition-all duration-300"
-              style={{ backgroundColor: color1 }}
-            />
-          )}
-        </button>
-        <button
-          onClick={() => handleTabChange('icons')}
-          className={`flex items-center gap-2 px-4 py-2 text-sm transition-all font-bold duration-300 relative rounded-t-xl ${
-            activeTab === 'icons' ? 'opacity-100' : 'opacity-50 hover:opacity-80'
-          }`}
-          style={{ color: color1 }}
-        >
-          Accessibility Icons
-          {activeTab === 'icons' && (
-            <span 
-              className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full transition-all duration-300"
-              style={{ backgroundColor: color1 }}
-            />
-          )}
-        </button>
-      </div>
-
-      {/* Content with Smooth Transition */}
-      <div className="relative w-full overflow-hidden">
-        <div
-          className={`transition-all duration-500 ease-in-out transform ${
-            isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
-          }`}
-        >
-          {/* Quote Tab */}
-          {activeTab === 'quote' && (
-            <div className="w-full duration-500 animate-in fade-in slide-in-from-bottom-4">
-              <p className={`${semibold_inter.className} text-[35px] text-center`} style={{ color: color1 }}>
-                Proverb of the day
-              </p>
-              <p className={`text-center ${roboto.className} flex justify-center gap-2 text-[18px] mt-4`} style={{ color: color1 }}>
-                "{quote.q}"
-              </p>
-              <p className={`text-center ${roboto.className} text-[13px] mt-2 opacity-60`} style={{ color: color1 }}>
-                — {quote.a}
-              </p>
-            </div>
-          )}
-
-          {/* Icons Showcase Tab with Custom Scrollbar */}
-          {activeTab === 'icons' && (
-            <div className="w-full duration-500 animate-in fade-in slide-in-from-bottom-4">
-              <style>{`
-                .custom-scrollbar-container {
-                  scrollbar-width: thin;
-                  scrollbar-color: ${color1}40 transparent;
-                  max-height: 400px;
-                  overflow-y: auto;
-                  padding-right: 8px;
-                }
-                .custom-scrollbar-container::-webkit-scrollbar {
-                  width: 4px;
-                  height: 4px;
-                }
-                .custom-scrollbar-container::-webkit-scrollbar-track {
-                  background: transparent;
-                  border-radius: 10px;
-                }
-                .custom-scrollbar-container::-webkit-scrollbar-thumb {
-                  background: ${color1}30;
-                  border-radius: 10px;
-                  transition: background 0.3s ease;
-                }
-                .custom-scrollbar-container::-webkit-scrollbar-thumb:hover {
-                  background: ${color1}60;
-                }
-                .custom-scrollbar-container::-webkit-scrollbar-corner {
-                  background: transparent;
-                }
-                
-                @keyframes fadeIn {
-                  from {
-                    opacity: 0;
-                    transform: translateY(8px);
-                  }
-                  to {
-                    opacity: 1;
-                    transform: translateY(0);
-                  }
-                }
-                
-                .animate-in {
-                  animation: fadeIn 0.4s ease-out forwards;
-                }
-              `}</style>
-              
-              <div className="custom-scrollbar-container">
-                <p className={`${semibold_inter.className} text-[24px] text-center mb-2`} style={{ color: color1 }}>
-                  Accessibility Icons
-                </p>
-                <p className={`text-center ${roboto.className} text-[12px] mb-6 opacity-70`} style={{ color: color1 }}>
-                  Icons must maintain proper contrast for all users
-                </p>
-                
-                <div className="flex flex-col gap-6">
-                  {iconCategories.map((category, idx) => (
-                    <div 
-                      key={idx}
-                      className="animate-in"
-                      style={{ animationDelay: `${idx * 50}ms` }}
-                    >
-                      <h3 className={`${semibold_inter.className} text-[14px] mb-3 opacity-80`} style={{ color: color1 }}>
-                        {category.title}
-                      </h3>
-                      <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5">
-                        {category.icons.map(({ Icon, label }, iconIdx) => (
-                          <div 
-                            key={iconIdx} 
-                            className="flex flex-col items-center gap-2 p-3 transition-all rounded-lg cursor-pointer hover:bg-white hover:bg-opacity-10 group"
-                            style={{ transition: 'all 0.2s ease' }}
-                          >
-                            <Icon 
-                              size={32} 
-                              strokeWidth={1.5}
-                              style={{ color: color1 }}
-                              className="transition-all duration-300 group-hover:scale-110"
-                            />
-                            <span 
-                              className={`${roboto.className} text-[10px] text-center opacity-70 transition-all duration-200 group-hover:opacity-100`}
-                              style={{ color: color1 }}
-                            >
-                              {label}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="p-3 mt-6 text-center rounded-lg transition-all duration-300 hover:scale-[1.02]" style={{ backgroundColor: `${color1}10` }}>
-                  <p className={`${roboto.className} text-[11px]`} style={{ color: color1 }}>
-                    All icons respect the same color contrast ratio as text
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
+      {/* Simple Quote Display */}
+      <div className="w-full text-center">
+        <p className={`${semibold_inter.className} text-[35px] text-center`} style={{ color: color1 }}>
+          Proverb of the day
+        </p>
+        <p className={`text-center ${roboto.className} flex justify-center gap-2 text-[18px] mt-2`} style={{ color: color1 }}>
+          "{quote.q}"
+        </p>
+        <p className={`text-center ${roboto.className} text-[13px] mt-2 opacity-60`} style={{ color: color1 }}>
+          — {quote.a}
+        </p>
       </div>
     </div>
   )
