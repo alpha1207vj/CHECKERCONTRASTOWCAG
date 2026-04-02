@@ -15,45 +15,47 @@ export default function SaveColors({
   onClose,
   color,
   color1,
-  onColorChange,onColorChange1
+  onColorChange,
+  onColorChange1
 }: {
   isOpen: boolean;
   onClose: () => void;
   color: string;
   color1: string;
-  onColorChange : any;
-  onColorChange1 : any
+  onColorChange: any;
+  onColorChange1: any;
 }) {
-  const HandleSaveColorUse = (value: any,value1:any) => 
-  {
+  const HandleSaveColorUse = (value: any, value1: any) => {
     onColorChange(value);
     onColorChange1(value1);
-  }
+  };
+  
   const [palettes, setPalettes] = useState<Palette[]>([]);
 
   useEffect(() => {
     const stored = localStorage.getItem("saved-palettes");
     if (stored) setPalettes(JSON.parse(stored));
-  }, [isOpen]); // reload when opened
+  }, [isOpen]);
 
   const saveCurrent = () => {
-   const alreadyExists = palettes.some(
-    (p) => p.fg === color && p.bg === color1
-  );
-  if (alreadyExists) return;
+    const alreadyExists = palettes.some(
+      (p) => p.fg === color && p.bg === color1
+    );
+    if (alreadyExists) return;
 
-  const newPalette: Palette = {
-    id: crypto.randomUUID(),
-    fg: color,
-    bg: color1,
-    savedAt: new Date().toLocaleDateString(),
-  };
-  const updated = [newPalette, ...palettes];
-  setPalettes(updated);
-  localStorage.setItem("saved-palettes", JSON.stringify(updated));
+    const newPalette: Palette = {
+      id: crypto.randomUUID(),
+      fg: color,
+      bg: color1,
+      savedAt: new Date().toLocaleDateString(),
+    };
+    const updated = [newPalette, ...palettes];
+    setPalettes(updated);
+    localStorage.setItem("saved-palettes", JSON.stringify(updated));
   };
 
-  const deletePalette = (id: string) => {
+  const deletePalette = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent event from bubbling to parent
     const updated = palettes.filter((p) => p.id !== id);
     setPalettes(updated);
     localStorage.setItem("saved-palettes", JSON.stringify(updated));
@@ -103,12 +105,13 @@ export default function SaveColors({
           )}
           {palettes.map((p) => (
             <div 
-              onClick={() => { HandleSaveColorUse(p.fg, p.bg) }}
               key={p.id}
-              
               className="flex items-center justify-between p-2 px-2 rounded-lg hover:bg-gray-50"
             >
-              <div className="flex items-center gap-2">
+              <div 
+                onClick={() => HandleSaveColorUse(p.fg, p.bg)}
+                className="flex items-center flex-1 gap-2 cursor-pointer"
+              >
                 <div className="flex">
                   <div
                     className="w-6 h-6 border border-gray-200 rounded-l-full"
@@ -126,9 +129,9 @@ export default function SaveColors({
               </div>
               <div className="flex items-center gap-1">
                 <span className="text-xs text-gray-400">{p.savedAt}</span>
-                <button
-                  onClick={() => deletePalette(p.id)}
-                  className="p-2 transition-colors rounded-full md:hover:text-red-300"
+                <button 
+                  onClick={(e) => deletePalette(p.id, e)}
+                  className="p-2 transition-colors rounded-full hover:bg-red-50 md:hover:text-red-500"
                 >
                   <Trash2 size={24} />
                 </button>
