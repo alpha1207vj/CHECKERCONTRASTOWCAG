@@ -23,15 +23,11 @@ import {
   Move,
   Quote,
   Ear,
-  Mic,
-  Focus,
   Pointer,
-  ScanText,
   AudioLines,
   Sparkles,
   Layers,
   Layout,
-  AlignJustify
 } from 'lucide-react'
 
 import { semibold_inter, roboto } from "../font"
@@ -135,27 +131,32 @@ export default function TestColor({ color, onColorChange, color1, onColorChange1
 
   return (
     <div className="flex flex-col items-center justify-center w-full p-6">
-      {/* Animated Tab Buttons */}
-      <div className="relative flex gap-2 mb-6 border-b border-opacity-20" style={{ borderColor: color1 }}>
+      {/* Animated Tab Buttons - Rounded corners added */}
+      <div 
+        className="relative flex gap-2 mb-6 rounded-2xl"
+        style={{ 
+          borderBottom: `1px solid ${color1}20`,
+          borderRadius: '12px 12px 0 0'
+        }}
+      >
         <button
           onClick={() => handleTabChange('quote')}
-          className={`flex items-center gap-2 px-4 py-2 text-sm transition-all duration-300 relative ${
+          className={`flex items-center gap-2 px-4 py-2 text-sm transition-all duration-300 relative rounded-t-xl ${
             activeTab === 'quote' ? 'opacity-100' : 'opacity-50 hover:opacity-80'
           }`}
           style={{ color: color1 }}
         >
-        
           Quote of the Day
           {activeTab === 'quote' && (
             <span 
-              className="absolute bottom-0 left-0 right-0 h-0.5 transition-all duration-300"
+              className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full transition-all duration-300"
               style={{ backgroundColor: color1 }}
             />
           )}
         </button>
         <button
           onClick={() => handleTabChange('icons')}
-          className={`flex items-center gap-2 px-4 py-2 text-sm transition-all duration-300 relative ${
+          className={`flex items-center gap-2 px-4 py-2 text-sm transition-all duration-300 relative rounded-t-xl ${
             activeTab === 'icons' ? 'opacity-100' : 'opacity-50 hover:opacity-80'
           }`}
           style={{ color: color1 }}
@@ -163,7 +164,7 @@ export default function TestColor({ color, onColorChange, color1, onColorChange1
           Accessibility Icons
           {activeTab === 'icons' && (
             <span 
-              className="absolute bottom-0 left-0 right-0 h-0.5 transition-all duration-300"
+              className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full transition-all duration-300"
               style={{ backgroundColor: color1 }}
             />
           )}

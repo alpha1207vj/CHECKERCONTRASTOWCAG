@@ -103,7 +103,7 @@ export default function SaveColors({
           )}
           {palettes.map((p) => (
             <div 
-              onClick={()=>{HandleSaveColorUse(p.bg,p.fg)}}
+              onClick={() => { HandleSaveColorUse(p.fg, p.bg) }}
               key={p.id}
               
               className="flex items-center justify-between p-2 px-2 rounded-lg hover:bg-gray-50"

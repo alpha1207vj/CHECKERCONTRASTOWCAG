@@ -62,7 +62,7 @@ export default function ColorInput1({ color, onColorChange }: any) {
         </div>
 
         {showPicker && (
-          <div className="absolute z-50 w-full md:top-[-240px] top-[60px]">
+          <div className="absolute z-50 w-full md:top-[130px] top-[60px]">
             <Chrome
               color={color}
               style={{ width: '100%' }}
