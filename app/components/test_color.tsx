@@ -141,11 +141,10 @@ export default function TestColor({ color, onColorChange, color1, onColorChange1
       >
         <button
           onClick={() => handleTabChange('quote')}
-          className={`flex items-center gap-2 px-4 py-2 text-sm transition-all duration-300 relative rounded-t-xl ${
+          className={`flex items-center gap-2 px-4 py-2 text-sm font-bold transition-all duration-300 relative rounded-t-xl ${
             activeTab === 'quote' ? 'opacity-100' : 'opacity-50 hover:opacity-80'
           }`}
-          style={{ color: color1 }}
-        >
+          style={{ color: color1 }}>
           Quote of the Day
           {activeTab === 'quote' && (
             <span 
@@ -156,7 +155,7 @@ export default function TestColor({ color, onColorChange, color1, onColorChange1
         </button>
         <button
           onClick={() => handleTabChange('icons')}
-          className={`flex items-center gap-2 px-4 py-2 text-sm transition-all duration-300 relative rounded-t-xl ${
+          className={`flex items-center gap-2 px-4 py-2 text-sm transition-all font-bold duration-300 relative rounded-t-xl ${
             activeTab === 'icons' ? 'opacity-100' : 'opacity-50 hover:opacity-80'
           }`}
           style={{ color: color1 }}
